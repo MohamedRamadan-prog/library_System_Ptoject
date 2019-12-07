@@ -99,7 +99,11 @@ public class LoginWindow extends Stage implements LibWindow {
 	
              	  else if(c.getcurrentAuth() == Auth.ADMIN)
             	    {
-            	     
+             		 Start.hideAllWindows();
+          			if(!AdminAccess.INSTANCE.isInitialized()) {
+          				AdminAccess.INSTANCE.init();
+          			}
+          			AdminAccess.INSTANCE.show();
              		  
             	    }
              	    
