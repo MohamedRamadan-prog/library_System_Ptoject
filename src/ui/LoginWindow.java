@@ -106,6 +106,16 @@ public class LoginWindow extends Stage implements LibWindow {
           			AdminAccess.INSTANCE.show();
              		  
             	    }
+             	 else if(c.getcurrentAuth() == Auth.BOTH)
+             	 	{
+             		 Start.hideAllWindows();
+             		 if(!Both.INSTANCE.isInitialized()) {
+             			 Both.INSTANCE.init();
+             		 }
+             		 Both.INSTANCE.show();
+          		  
+             	 	}
+             	    
              	    
              	    
         		} catch(LoginException ex) {

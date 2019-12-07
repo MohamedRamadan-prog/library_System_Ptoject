@@ -51,7 +51,8 @@ public class Start extends Application {
 		History.INSTANCE,
 		NewMember.INSTANCE,
 		AdminAccess.INSTANCE,
-		AddCopyWindow.INSTANCE
+		AddCopyWindow.INSTANCE,
+		Both.INSTANCE
 	};
 	
 	public static void hideAllWindows() {

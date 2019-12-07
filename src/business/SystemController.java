@@ -25,7 +25,12 @@ public class SystemController implements ControllerInterface {
 		currentAuth = map.get(id).getAuthorization();
 	}
 	
-	
+	//farahat
+		public void addMember(LibraryMember m)
+		{
+			DataAccess data = new DataAccessFacade();
+			data.saveNewMember(m);
+		}
 	public Auth getcurrentAuth()
 	{
 		return currentAuth;

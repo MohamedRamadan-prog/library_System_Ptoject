@@ -141,47 +141,46 @@ public static final NewMember INSTANCE = new NewMember();
         		else if(zipField.getText().trim().length()== 0)
         			messageBar.setText("Error, Zip!");
         		else {
-        		CheckoutRecord checkout = new CheckoutRecord();
-        		Address ad = new Address(streetField.getText().trim(),
-        		cityField.getText().trim(),stateField.getText().trim(),zipField.getText().trim());
-        		LibraryMember lm = new LibraryMember(idField.getText().trim(),
-        		fNameField.getText().trim(),lNameField.getText().trim(),telField.getText().trim(),ad,checkout);
-        		DataAccess data = new DataAccessFacade();
-        		data.saveNewMember(lm);
-            		
-            	backAdmin();
-        	}
-        	}
-        	});
-        // back to admin window
-        Button backBtn = new Button("<= Back to Admin Window");
-        backBtn.setOnAction(e -> backAdmin());
-        HBox hBack = new HBox(10);
-        hBack.setAlignment(Pos.BOTTOM_LEFT);
-        hBack.getChildren().add(backBtn);
-        grid.add(hBack, 1, 10);
-        //back to main
-        Button backBtn1 = new Button("<= Back to Main");
-        backBtn1.setOnAction(e -> back());
-        HBox hBack1 = new HBox(10);
-        hBack1.setAlignment(Pos.BOTTOM_LEFT);
-        hBack1.getChildren().add(backBtn1);
-        grid.add(hBack1, 0, 10);
-        
-        Scene scene = new Scene(grid);
-        scene.getStylesheets().add(getClass().getResource("library.css").toExternalForm());
-        setScene(scene);
-        
-	}
-	void back()
-	{
-		Start.hideAllWindows();
-		Start.primStage().show();
-	}
-	void backAdmin()
-	{
-		    Start.hideAllWindows();
-			AdminAccess.INSTANCE.show();
-	    }
+        			Address ad = new Address(streetField.getText().trim(),
+        	        		cityField.getText().trim(),stateField.getText().trim(),zipField.getText().trim());
+        	        		CheckoutRecord checkout = new CheckoutRecord();
+        	        		LibraryMember lm = new LibraryMember(idField.getText().trim(),
+        	        		fNameField.getText().trim(),lNameField.getText().trim(),telField.getText().trim(),ad,checkout);
+        	        		ControllerInterface in = new SystemController();// modified
+        	        		in.addMember(lm);
+	        	            	backAdmin();
+		        	}
+		        }
+	        });
+	        // back to admin window
+	        Button backBtn = new Button("<= Back to Admin Window");
+	        backBtn.setOnAction(e -> backAdmin());
+	        HBox hBack = new HBox(10);
+	        hBack.setAlignment(Pos.BOTTOM_LEFT);
+	        hBack.getChildren().add(backBtn);
+	        grid.add(hBack, 1, 10);
+	        //back to main
+	        Button backBtn1 = new Button("<= Back to Main");
+	        backBtn1.setOnAction(e -> back());
+	        HBox hBack1 = new HBox(10);
+	        hBack1.setAlignment(Pos.BOTTOM_LEFT);
+	        hBack1.getChildren().add(backBtn1);
+	        grid.add(hBack1, 0, 10);
+	        
+	        Scene scene = new Scene(grid);
+	        scene.getStylesheets().add(getClass().getResource("library.css").toExternalForm());
+	        setScene(scene);
+	        
+		}
+		void back()
+		{
+			Start.hideAllWindows();
+			Start.primStage().show();
+		}
+		void backAdmin()
+		{
+			    Start.hideAllWindows();
+				AdminAccess.INSTANCE.show();
+		    }
 	
 }

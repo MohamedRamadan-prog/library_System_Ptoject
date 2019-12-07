@@ -12,6 +12,7 @@ public interface ControllerInterface {
 	public List<String> allMemberIds();
 	public List<String> allBookIds();
 	public Auth getcurrentAuth();
+	public void addMember(LibraryMember m);
 
 	
 }
