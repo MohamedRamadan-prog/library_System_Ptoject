@@ -50,7 +50,8 @@ public class Start extends Application {
 		DisplayMemberHistory.INSTANCE,
 		History.INSTANCE,
 		NewMember.INSTANCE,
-		AdminAccess.INSTANCE
+		AdminAccess.INSTANCE,
+		AddCopyWindow.INSTANCE
 	};
 	
 	public static void hideAllWindows() {
@@ -68,6 +69,10 @@ public class Start extends Application {
 	public static void hideHistory() {
 		allWindows[7].hide();
 	}
+	
+	public static void hideAddWindow () {
+		allWindows[10].hide();
+	}
 
 	
 	public static void hideCheckout() {
@@ -78,6 +83,11 @@ public class Start extends Application {
 	public static Stage retDisplayMemberHistory() {
 		return allWindows[6];
 	}
+	
+	public static Stage retAdminWindow() {
+		return allWindows[9];
+	}
+
 
 	public static Stage retLibrarianStartWindow() {
 		return allWindows[5];

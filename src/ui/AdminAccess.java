@@ -24,86 +24,101 @@ import javafx.stage.Stage;
 
 public class AdminAccess extends Stage implements LibWindow {
 	public static final AdminAccess INSTANCE = new AdminAccess();
-	
+
 	private boolean isInitialized = false;
-	
+
 	public boolean isInitialized() {
 		return isInitialized;
 	}
+
 	public void isInitialized(boolean val) {
 		isInitialized = val;
 	}
+
 	private Text messageBar = new Text();
-	
+
 	public void clear() {
 		messageBar.setText("");
 	}
-	
+
 	/* This class is a singleton */
-    private AdminAccess () {}
-    
-    public void init() { 
-    	GridPane grid = new GridPane();
-        grid.setId("top-container");
-        grid.setAlignment(Pos.CENTER);
-        grid.setHgap(10);
-        grid.setVgap(10);
-        grid.setPadding(new Insets(25, 25, 25, 25));
+	private AdminAccess() {
+	}
 
-        Text scenetitle = new Text("Admin Window");
-        scenetitle.setFont(Font.font("Harlow Solid Italic", FontWeight.NORMAL, 20)); //Tahoma
-        grid.add(scenetitle, 0, 0, 2, 1);
-        // add member
-        Button addMember = new Button("Add new Member");
-        HBox hbBtn = new HBox(10);
-        hbBtn.setAlignment(Pos.CENTER);
-        hbBtn.getChildren().add(addMember);
-        grid.add(hbBtn, 0, 2);
-       
+	public void init() {
+		GridPane grid = new GridPane();
+		grid.setId("top-container");
+		grid.setAlignment(Pos.CENTER);
+		grid.setHgap(10);
+		grid.setVgap(10);
+		grid.setPadding(new Insets(25, 25, 25, 25));
 
-        Button addBook = new Button("Add new Book");
-        HBox hbBtn1 = new HBox(10);
-        hbBtn1.setAlignment(Pos.CENTER);
-        hbBtn1.getChildren().add(addBook);
-        grid.add(hbBtn1, 1, 2);
+		Text scenetitle = new Text("Admin Window");
+		scenetitle.setFont(Font.font("Harlow Solid Italic", FontWeight.NORMAL, 20)); // Tahoma
+		grid.add(scenetitle, 0, 0, 2, 1);
+		// add member
+		Button addMember = new Button("Add new Member");
+		HBox hbBtn = new HBox(10);
+		hbBtn.setAlignment(Pos.CENTER);
+		hbBtn.getChildren().add(addMember);
+		grid.add(hbBtn, 0, 2);
 
+		Button addBook = new Button("Add new Book");
+		HBox hbBtn1 = new HBox(10);
+		hbBtn1.setAlignment(Pos.CENTER);
+		hbBtn1.getChildren().add(addBook);
+		grid.add(hbBtn1, 1, 2);
 
-        addMember.setOnAction(new EventHandler<ActionEvent>() {
-        	@Override
-        	public void handle(ActionEvent e) {
-        		
-        			
-                		 Start.hideAllWindows();
-            			if(!NewMember.INSTANCE.isInitialized()) {
-            				NewMember.INSTANCE.init();
-            			}
-            			NewMember.INSTANCE.show();            	        	   
-        	}
-        });
-        //Mark, start from here man
-        addBook.setOnAction(new EventHandler<ActionEvent>() {
-        	@Override
-        	public void handle(ActionEvent e) {
-        		           	        	   
-        	}
-        });
+		Button addCopy = new Button("Add new Copy");
+		grid.add(addCopy, 2, 2);
 
-        Button backBtn = new Button("<= Back to Main");
-        backBtn.setOnAction(new EventHandler<ActionEvent>() {
-        	@Override
-        	public void handle(ActionEvent e) {
-        		Start.hideAllWindows();
-        		Start.primStage().show();
-        	}
-        });
-       
-        HBox hBack = new HBox(10);
-        hBack.setAlignment(Pos.BOTTOM_LEFT);
-        hBack.getChildren().add(backBtn);
-        grid.add(hBack, 0, 7);
-        Scene scene = new Scene(grid);
-        scene.getStylesheets().add(getClass().getResource("library.css").toExternalForm());
-        setScene(scene);
-        
-    }
-    }
+		addMember.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent e) {
+
+				Start.hideAllWindows();
+				if (!NewMember.INSTANCE.isInitialized()) {
+					NewMember.INSTANCE.init();
+				}
+				NewMember.INSTANCE.show();
+			}
+		});
+		// Mark, start from here man
+		addCopy.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent e) {
+				Start.hideAllWindows();
+				if (!AddCopyWindow.INSTANCE.isInitialized()) {
+					AddCopyWindow.INSTANCE.init();
+				}
+				AddCopyWindow.INSTANCE.show();			}
+		});
+		addBook.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent e) {
+				Start.hideAllWindows();
+				if (!AddBookWindow.INSTANCE.isInitialized()) {
+					AddBookWindow.INSTANCE.init();
+				}
+				AddBookWindow.INSTANCE.show();
+			}
+		});
+		Button backBtn = new Button("<= Back to Main");
+		backBtn.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent e) {
+				Start.hideAllWindows();
+				Start.primStage().show();
+			}
+		});
+
+		HBox hBack = new HBox(10);
+		hBack.setAlignment(Pos.BOTTOM_LEFT);
+		hBack.getChildren().add(backBtn);
+		grid.add(hBack, 0, 7);
+		Scene scene = new Scene(grid);
+		scene.getStylesheets().add(getClass().getResource("library.css").toExternalForm());
+		setScene(scene);
+
+	}
+}
