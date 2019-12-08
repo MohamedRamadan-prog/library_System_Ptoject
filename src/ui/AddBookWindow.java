@@ -122,9 +122,11 @@ public class AddBookWindow extends Stage implements LibWindow {
 				messageBar.setText("Book Added");
 				addBook(ISBNTextField.getText(), authorsTextField.getText(), authorsTextField.getText(),
 						maxCheckoutLengthTextField.getText());
-
+				Start.hideAllWindows();
+				Start.retAdminWindow().show();
 			}
 		});
+		
 		addBook.setAlignment(Pos.CENTER);
 		HBox hBack = new HBox(40);
 		hBack.setAlignment(Pos.BOTTOM_LEFT);

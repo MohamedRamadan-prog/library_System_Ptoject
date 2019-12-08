@@ -52,7 +52,8 @@ public class Start extends Application {
 		NewMember.INSTANCE,
 		AdminAccess.INSTANCE,
 		AddCopyWindow.INSTANCE,
-		Both.INSTANCE
+		Both.INSTANCE,
+		AddBookWindow.INSTANCE
 	};
 	
 	public static void hideAllWindows() {
@@ -84,6 +85,11 @@ public class Start extends Application {
 	public static Stage retDisplayMemberHistory() {
 		return allWindows[6];
 	}
+	
+	public static Stage retAddBookWindow() {
+		return allWindows[12];
+	}
+
 	
 	public static Stage retAdminWindow() {
 		return allWindows[9];
